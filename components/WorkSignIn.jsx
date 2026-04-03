@@ -49,6 +49,21 @@ export default function WorkSignIn({ providers, allowedDomains, error }) {
           bisa mengirim satu survei.
         </p>
 
+        <a
+          href="/questions"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            marginTop: 16,
+            color: "#0f766e",
+            fontWeight: 700,
+            textDecoration: "none",
+          }}
+        >
+          Lihat penjelasan lengkap pertanyaan survei
+        </a>
+
         <div
           style={{
             marginTop: 20,

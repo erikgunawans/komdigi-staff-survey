@@ -98,6 +98,21 @@ export default function TokenEntry({ initialToken = "" }) {
           undangan yang diberikan admin.
         </p>
 
+        <a
+          href="/questions"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            marginBottom: 22,
+            color: "#0f766e",
+            fontWeight: 700,
+            textDecoration: "none",
+          }}
+        >
+          Lihat penjelasan lengkap pertanyaan survei
+        </a>
+
         <div
           style={{
             background: "#fff",
