@@ -1,0 +1,22 @@
+{
+  "name": "staff-survey-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate:invite": "node scripts/generate-invite.mjs",
+    "generate:invites": "node scripts/generate-invites.mjs",
+    "export:responses": "node scripts/export-responses.mjs"
+  },
+  "dependencies": {
+    "next": "^15.3.0",
+    "next-auth": "^4.24.13",
+    "pg": "^8.13.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
