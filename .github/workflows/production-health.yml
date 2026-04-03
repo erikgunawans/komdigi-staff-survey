@@ -1,0 +1,42 @@
+name: Production Health
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+jobs:
+  production-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PRODUCTION_URL: https://staff-survey-app.vercel.app
+
+    steps:
+      - name: Check homepage
+        run: |
+          status=$(curl -s -o /dev/null -w "%{http_code}" "$PRODUCTION_URL/")
+          echo "Homepage status: $status"
+          test "$status" = "200"
+
+      - name: Check admin page
+        run: |
+          status=$(curl -s -o /dev/null -w "%{http_code}" "$PRODUCTION_URL/admin")
+          echo "Admin status: $status"
+          test "$status" = "200"
+
+      - name: Check app and database health
+        run: |
+          response=$(curl -fsS "$PRODUCTION_URL/api/health")
+          echo "$response"
+          RESPONSE="$response" node -e "
+            const payload = JSON.parse(process.env.RESPONSE);
+            if (!payload.ok) {
+              console.error('Health endpoint returned not ok', payload);
+              process.exit(1);
+            }
+            if (payload.services?.database !== 'ok') {
+              console.error('Database is not healthy', payload);
+              process.exit(1);
+            }
+          "

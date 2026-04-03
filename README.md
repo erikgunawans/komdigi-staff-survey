@@ -156,10 +156,34 @@ Recommended production steps:
 4. Deploy
 5. Verify `/`, `/survey`, and `/admin`
 
+## Production health checks
+
+This repo now includes:
+
+- a production health endpoint at `/api/health`
+- a GitHub Actions workflow at [`.github/workflows/production-health.yml`](/Users/erikgunawansupriatna/survey-komdigi/staff-survey-app/.github/workflows/production-health.yml)
+
+The health endpoint checks:
+
+- app reachability
+- database connectivity
+- presence of the required survey tables
+
+The GitHub workflow runs:
+
+- on manual trigger
+- every 30 minutes
+
+It verifies:
+
+- homepage returns `200`
+- admin page returns `200`
+- `/api/health` returns `ok: true`
+- database service reports healthy
+
 ## Security notes
 
 - Real secrets are intentionally excluded from git
 - Generated invite exports and response exports are ignored
 - Raw invite tokens should be treated as sensitive
 - Only share admin access with trusted internal users
-
