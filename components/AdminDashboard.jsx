@@ -171,7 +171,7 @@ function matchesSearch(entry, query) {
   return haystacks.some((value) => String(value).toLowerCase().includes(query));
 }
 
-export default function AdminDashboard({ entries, summary }) {
+export default function AdminDashboard({ entries, summary, health }) {
   const [teamFilter, setTeamFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
   const [query, setQuery] = useState("");
@@ -189,6 +189,52 @@ export default function AdminDashboard({ entries, summary }) {
 
   return (
     <>
+      <SectionCard
+        title="Production Health"
+        subtitle="Status ringkas aplikasi live, koneksi database, dan endpoint health check yang dipakai workflow monitoring."
+      >
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
+          <MetricPill
+            label="App"
+            value={health?.services?.app === "ok" ? "Healthy" : "Issue"}
+            tone={health?.services?.app === "ok" ? "green" : "rose"}
+          />
+          <MetricPill
+            label="Database"
+            value={health?.services?.database === "ok" ? "Connected" : "Check"}
+            tone={health?.services?.database === "ok" ? "green" : "amber"}
+          />
+          <MetricPill
+            label="Latency"
+            value={health?.latencyMs ? `${health.latencyMs} ms` : "N/A"}
+            tone="blue"
+          />
+          <MetricPill
+            label="Environment"
+            value={health?.environment ?? "unknown"}
+            tone="slate"
+          />
+        </div>
+
+        <div style={{ marginTop: 16, color: "#475569", lineHeight: 1.7 }}>
+          Health endpoint:
+          {" "}
+          <a href="/api/health" style={{ color: "#0f766e", fontWeight: 700 }}>
+            /api/health
+          </a>
+          {" "}
+          • terakhir dicek:
+          {" "}
+          <strong style={{ color: "#0f172a" }}>{health?.checkedAt ? formatDate(health.checkedAt) : "Belum ada"}</strong>
+        </div>
+
+        {health?.database?.missingTables?.length ? (
+          <div style={{ marginTop: 12, color: "#b45309", lineHeight: 1.7 }}>
+            Tabel yang belum ditemukan: {health.database.missingTables.join(", ")}
+          </div>
+        ) : null}
+      </SectionCard>
+
       <div
         style={{
           display: "grid",

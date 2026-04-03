@@ -4,6 +4,7 @@ import { buildSurveyDataset } from "../../lib/reporting";
 import AdminLogin from "../../components/AdminLogin";
 import AdminDashboard from "../../components/AdminDashboard";
 import { getAuthSession, getWorkProviderButtons } from "../../lib/auth";
+import { getHealthSnapshot } from "../../lib/health";
 import { isWorkAuthEnabled } from "../../lib/work-auth";
 
 export const dynamic = "force-dynamic";
@@ -48,6 +49,7 @@ export default async function AdminPage() {
 
   const rows = await listSurveyExportRows();
   const { entries, summary } = buildSurveyDataset(rows);
+  const health = await getHealthSnapshot();
 
   return (
     <main style={{ maxWidth: 1240, margin: "0 auto", padding: "32px 20px 72px" }}>
@@ -104,7 +106,7 @@ export default async function AdminPage() {
           </div>
         </div>
 
-        <AdminDashboard entries={entries} summary={summary} />
+        <AdminDashboard entries={entries} summary={summary} health={health} />
       </div>
     </main>
   );

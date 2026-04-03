@@ -1,5 +1,8 @@
 # Komdigi Staff Survey
 
+[![CI](https://github.com/erikgunawans/komdigi-staff-survey/actions/workflows/ci.yml/badge.svg)](https://github.com/erikgunawans/komdigi-staff-survey/actions/workflows/ci.yml)
+[![Production Health](https://github.com/erikgunawans/komdigi-staff-survey/actions/workflows/production-health.yml/badge.svg)](https://github.com/erikgunawans/komdigi-staff-survey/actions/workflows/production-health.yml)
+
 Next.js survey application for collecting internal staff feedback, with either token-based access or Google/Microsoft work-account sign-in.
 
 ## What it includes
