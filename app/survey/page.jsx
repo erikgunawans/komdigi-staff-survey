@@ -24,13 +24,13 @@ export default async function SurveyPage() {
     });
 
     if (!identity) {
-      redirect("/");
+      redirect("/login");
     }
 
     const context = await getOrCreateSurveyContextByIdentity(identity);
 
     if (!context) {
-      redirect("/");
+      redirect("/login");
     }
 
     if (context.invite.status === "submitted") {
@@ -49,13 +49,13 @@ export default async function SurveyPage() {
   const sessionId = await getSurveySessionId();
 
   if (!sessionId) {
-    redirect("/");
+    redirect("/login");
   }
 
   const context = await getSurveyContextBySession(sessionId);
 
   if (!context) {
-    redirect("/");
+    redirect("/login");
   }
 
   if (context.invite.status === "submitted") {

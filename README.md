@@ -5,6 +5,21 @@
 
 Next.js survey application for collecting internal staff feedback, with either token-based access or Google/Microsoft work-account sign-in.
 
+## Production links (Vercel)
+
+Base URL: **https://staff-survey-app.vercel.app**
+
+| Page | URL |
+|------|-----|
+| Home / masuk survei | https://staff-survey-app.vercel.app/ |
+| Login (sama isi dengan home: SSO atau token) | https://staff-survey-app.vercel.app/login |
+| Isi survei (setelah autentikasi) | https://staff-survey-app.vercel.app/survey |
+| Panduan pertanyaan (kenapa ditanyakan & pemakaian jawaban) | https://staff-survey-app.vercel.app/questions |
+| Dashboard admin | https://staff-survey-app.vercel.app/admin |
+| Health check (JSON) | https://staff-survey-app.vercel.app/api/health |
+
+If your Vercel project uses a different hostname or custom domain, replace the host; the paths stay the same.
+
 ## What it includes
 
 - Staff survey flow at `/`

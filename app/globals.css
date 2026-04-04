@@ -27,3 +27,15 @@ textarea {
 a {
   color: inherit;
 }
+
+/* Questions guide (/questions) — responsive two-column layout */
+@media (max-width: 840px) {
+  .qg-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .qg-sticky-panel {
+    position: relative !important;
+    max-height: none !important;
+  }
+}

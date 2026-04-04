@@ -74,7 +74,15 @@ export default function WorkSignIn({ providers, allowedDomains, error }) {
             lineHeight: 1.7,
           }}
         >
-          Domain yang diizinkan: <strong>{allowedDomains.join(", ")}</strong>
+          {allowedDomains.length > 0 ? (
+            <>
+              Domain yang diizinkan: <strong>{allowedDomains.join(", ")}</strong>
+            </>
+          ) : (
+            <>
+              Akses via daftar email super-admin. Hubungi admin jika Anda seharusnya bisa masuk.
+            </>
+          )}
         </div>
 
         {message ? (
@@ -82,25 +90,32 @@ export default function WorkSignIn({ providers, allowedDomains, error }) {
         ) : null}
 
         <div style={{ display: "grid", gap: 12, marginTop: 22 }}>
-          {providers.map((provider) => (
-            <button
-              key={provider.id}
-              type="button"
-              onClick={() => signIn(provider.id, { callbackUrl: "/survey" })}
-              style={{
-                border: "none",
-                borderRadius: 18,
-                padding: "16px 18px",
-                background: "#0f172a",
-                color: "#fff",
-                fontWeight: 700,
-                fontSize: 16,
-                cursor: "pointer",
-              }}
-            >
-              Masuk dengan {provider.name}
-            </button>
-          ))}
+          {providers.length === 0 ? (
+            <p style={{ margin: 0, color: "#b45309", fontSize: 14, lineHeight: 1.65 }}>
+              Tombol login belum tersedia: pastikan <code>GOOGLE_CLIENT_*</code> atau{" "}
+              <code>AZURE_AD_*</code> terpasang di environment. Sementara itu minta tautan token dari admin.
+            </p>
+          ) : (
+            providers.map((provider) => (
+              <button
+                key={provider.id}
+                type="button"
+                onClick={() => signIn(provider.id, { callbackUrl: "/survey" })}
+                style={{
+                  border: "none",
+                  borderRadius: 18,
+                  padding: "16px 18px",
+                  background: "#0f172a",
+                  color: "#fff",
+                  fontWeight: 700,
+                  fontSize: 16,
+                  cursor: "pointer",
+                }}
+              >
+                Masuk dengan {provider.name}
+              </button>
+            ))
+          )}
         </div>
 
         <p style={{ margin: "18px 0 0", color: "#94a3b8", fontSize: 13, lineHeight: 1.6 }}>
