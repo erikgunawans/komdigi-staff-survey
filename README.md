@@ -12,7 +12,7 @@ Base URL: **https://staff-survey-app.vercel.app**
 | Page | URL |
 |------|-----|
 | Home / masuk survei | https://staff-survey-app.vercel.app/ |
-| Login (sama isi dengan home: SSO atau token) | https://staff-survey-app.vercel.app/login |
+| Login (URL tetap `/login`; di edge di-rewrite ke `/` — sama isi dengan home) | https://staff-survey-app.vercel.app/login |
 | Isi survei (setelah autentikasi) | https://staff-survey-app.vercel.app/survey |
 | Panduan pertanyaan (kenapa ditanyakan & pemakaian jawaban) | https://staff-survey-app.vercel.app/questions |
 | Dashboard admin | https://staff-survey-app.vercel.app/admin |
