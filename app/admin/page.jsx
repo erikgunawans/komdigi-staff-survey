@@ -62,6 +62,18 @@ export default async function AdminPage() {
           backdropFilter: "blur(14px)",
         }}
       >
+        <img
+          src="/covers/cover-common.png"
+          alt="Survei Staf Komdigi 2026"
+          style={{
+            width: "100%",
+            maxWidth: 560,
+            borderRadius: 18,
+            boxShadow: "0 16px 40px rgba(15, 23, 42, 0.18)",
+            marginBottom: 24,
+            display: "block",
+          }}
+        />
         <div style={{ display: "flex", justifyContent: "space-between", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
           <div>
             <p style={{ margin: 0, color: "#0f766e", fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>

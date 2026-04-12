@@ -284,6 +284,17 @@ export default function StaffSurveyClient({ initialTeam, initialResponses }) {
     return (
       <div style={{ minHeight: "100vh", padding: "40px 24px" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
+          <img
+            src="/covers/cover-common.png"
+            alt="Survei Staf Komdigi 2026"
+            style={{
+              width: "100%",
+              borderRadius: 18,
+              boxShadow: "0 16px 40px rgba(15, 23, 42, 0.18)",
+              marginBottom: 24,
+              display: "block",
+            }}
+          />
           <h2 style={{ fontSize: 26, fontWeight: 800, color: "#111827", marginBottom: 8 }}>
             Anda dari tim mana?
           </h2>
@@ -425,6 +436,17 @@ export default function StaffSurveyClient({ initialTeam, initialResponses }) {
       }}
     >
       <div style={{ maxWidth: 560, margin: "0 auto" }}>
+        <img
+          src="/covers/cover-common.png"
+          alt="Survei Staf Komdigi 2026"
+          style={{
+            width: "100%",
+            borderRadius: 18,
+            boxShadow: "0 16px 40px rgba(15, 23, 42, 0.18)",
+            marginBottom: 24,
+            display: "block",
+          }}
+        />
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
           <span style={{ fontSize: 28 }}>{currentSubdir.emoji}</span>
           <div style={{ flex: 1 }}>
