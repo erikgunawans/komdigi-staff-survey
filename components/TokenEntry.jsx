@@ -81,6 +81,18 @@ export default function TokenEntry({ initialToken = "" }) {
       }}
     >
       <div style={{ maxWidth: 560, width: "100%", textAlign: "center" }}>
+        <img
+          src="/covers/cover-common.png"
+          alt="Survei Staf Komdigi 2026"
+          style={{
+            width: "100%",
+            maxWidth: 520,
+            borderRadius: 18,
+            boxShadow: "0 16px 40px rgba(15, 23, 42, 0.18)",
+            margin: "0 auto 22px",
+            display: "block",
+          }}
+        />
         <div style={{ fontSize: 64, marginBottom: 16 }}>🔐</div>
         <h1
           style={{

@@ -38,6 +38,17 @@ export default function WorkSignIn({ providers, allowedDomains, error }) {
           backdropFilter: "blur(14px)",
         }}
       >
+        <img
+          src="/covers/cover-common.png"
+          alt="Survei Staf Komdigi 2026"
+          style={{
+            width: "100%",
+            borderRadius: 18,
+            boxShadow: "0 16px 40px rgba(15, 23, 42, 0.18)",
+            marginBottom: 22,
+            display: "block",
+          }}
+        />
         <p style={{ margin: 0, color: "#0f766e", fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>
           Internal Staff Survey
         </p>
