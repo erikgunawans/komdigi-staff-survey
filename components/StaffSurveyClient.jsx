@@ -285,8 +285,8 @@ export default function StaffSurveyClient({ initialTeam, initialResponses }) {
       <div style={{ minHeight: "100vh", padding: "40px 24px" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
           <img
-            src="/covers/cover-common.png"
-            alt="Survei Staf Komdigi 2026"
+            src="/covers/cover-thanks.png"
+            alt="Terima kasih atas partisipasi Anda"
             style={{
               width: "100%",
               borderRadius: 18,
