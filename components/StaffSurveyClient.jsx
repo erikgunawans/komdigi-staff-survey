@@ -352,6 +352,17 @@ export default function StaffSurveyClient({ initialTeam, initialResponses }) {
         }}
       >
         <div style={{ maxWidth: 520, width: "100%", textAlign: "center" }}>
+          <img
+            src="/covers/cover-common.png"
+            alt="Survei Staf Komdigi 2026"
+            style={{
+              width: "100%",
+              borderRadius: 18,
+              boxShadow: "0 16px 40px rgba(15, 23, 42, 0.18)",
+              marginBottom: 24,
+              display: "block",
+            }}
+          />
           <div style={{ fontSize: 64, marginBottom: 16 }}>🙏</div>
           <h2 style={{ fontSize: 28, fontWeight: 800, color: "#111827", marginBottom: 10 }}>
             Terima kasih, {currentSubdir.lead}!
