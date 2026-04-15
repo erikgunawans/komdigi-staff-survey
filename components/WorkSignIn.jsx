@@ -127,6 +127,40 @@ export default function WorkSignIn({ providers, allowedDomains, error }) {
               </button>
             ))
           )}
+
+          <a
+            href="/login?mode=token"
+            style={{
+              borderRadius: 18,
+              padding: "14px 18px",
+              background: "#ffffff",
+              color: "#0f172a",
+              border: "1px solid #cbd5e1",
+              fontWeight: 700,
+              fontSize: 16,
+              textDecoration: "none",
+              textAlign: "center",
+            }}
+          >
+            Masuk dengan token (tanpa Google Workspace)
+          </a>
+
+          <a
+            href="/admin"
+            style={{
+              borderRadius: 18,
+              padding: "14px 18px",
+              background: "#fff7ed",
+              color: "#9a3412",
+              border: "1px solid #fed7aa",
+              fontWeight: 700,
+              fontSize: 16,
+              textDecoration: "none",
+              textAlign: "center",
+            }}
+          >
+            Masuk Admin (akses terbatas)
+          </a>
         </div>
 
         <p style={{ margin: "18px 0 0", color: "#94a3b8", fontSize: 13, lineHeight: 1.6 }}>

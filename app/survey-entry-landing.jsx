@@ -7,8 +7,10 @@ import { getAllowedEmailDomains, isWorkAuthEnabled } from "../lib/work-auth";
 
 export default async function SurveyEntryLanding({ searchParams }) {
   const resolvedSearchParams = await searchParams;
+  const mode = resolvedSearchParams?.mode ?? "";
+  const forceTokenMode = mode === "token";
 
-  if (isWorkAuthEnabled()) {
+  if (isWorkAuthEnabled() && !forceTokenMode) {
     const session = await getAuthSession();
 
     if (session?.user?.authSubject) {
