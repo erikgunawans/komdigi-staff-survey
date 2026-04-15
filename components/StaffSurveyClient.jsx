@@ -447,17 +447,6 @@ export default function StaffSurveyClient({ initialTeam, initialResponses }) {
       }}
     >
       <div style={{ maxWidth: 560, margin: "0 auto" }}>
-        <img
-          src="/covers/cover-common.png"
-          alt="Survei Staf Komdigi 2026"
-          style={{
-            width: "100%",
-            borderRadius: 18,
-            boxShadow: "0 16px 40px rgba(15, 23, 42, 0.18)",
-            marginBottom: 24,
-            display: "block",
-          }}
-        />
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
           <span style={{ fontSize: 28 }}>{currentSubdir.emoji}</span>
           <div style={{ flex: 1 }}>
