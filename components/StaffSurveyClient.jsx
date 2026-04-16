@@ -459,6 +459,20 @@ export default function StaffSurveyClient({ initialTeam, initialResponses }) {
           </div>
         </div>
 
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 8 }}>
+          <a
+            href="/questions?from=%2Fsurvey"
+            style={{
+              fontSize: 12,
+              color: "#0f766e",
+              textDecoration: "none",
+              fontWeight: 700,
+            }}
+          >
+            Lihat Komdigi Survey Guide
+          </a>
+        </div>
+
         <ProgressBar current={step + 1} total={totalQuestions} color={currentSubdir.color} />
 
         {step === COMMON_QS.length && (

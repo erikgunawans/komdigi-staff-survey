@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import QuestionsGuideClient from "./questions-guide-client";
 
 export const metadata = {
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function QuestionsExplanationPage() {
-  return <QuestionsGuideClient />;
+  return (
+    <Suspense fallback={null}>
+      <QuestionsGuideClient />
+    </Suspense>
+  );
 }

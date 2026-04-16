@@ -111,7 +111,7 @@ export default function TokenEntry({ initialToken = "" }) {
         </p>
 
         <a
-          href="/questions"
+          href="/questions?from=%2Flogin"
           style={{
             display: "inline-flex",
             alignItems: "center",

@@ -174,6 +174,22 @@ Recommended production steps:
 4. Deploy
 5. Verify `/`, `/survey`, and `/admin`
 
+## Fresh-start reset runbook
+
+If you need to restart survey data from zero (without changing schema/auth/env):
+
+1. Run [reset-survey-data.sql](/Users/erikgunawansupriatna/survey-komdigi/staff-survey-app/db/reset-survey-data.sql) in Supabase SQL Editor
+2. Clear admin session once via `/api/admin/logout`
+3. Clear browser cookies/session in your QA browser
+4. Redeploy production on Vercel
+
+This reset clears only runtime tables in this order:
+
+- `survey_responses`
+- `survey_auth_identities`
+- `survey_sessions`
+- `survey_invites`
+
 ## Production health checks
 
 This repo now includes:

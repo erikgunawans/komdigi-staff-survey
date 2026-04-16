@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { COMMON_QS, SPECIFIC_QS, SUBDIRS } from "../../lib/questionnaire";
 import { QUESTION_EXPLANATIONS } from "../../lib/question-explanations";
 
@@ -44,7 +45,23 @@ const BACA_HASIL_ITEMS = [
   "Komunikasikan kembali hasil dan rencana perbaikannya supaya staf melihat bahwa survei benar-benar dipakai.",
 ];
 
+function getSafeFromPath(value) {
+  const candidate = value?.trim();
+
+  if (!candidate || !candidate.startsWith("/") || candidate.startsWith("//")) {
+    return null;
+  }
+
+  if (candidate.includes("://")) {
+    return null;
+  }
+
+  return candidate;
+}
+
 export default function QuestionsGuideClient() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const groups = useMemo(() => buildGroups(), []);
   const [view, setView] = useState("browse"); // browse | context
   const [groupFilter, setGroupFilter] = useState("all");
@@ -123,6 +140,24 @@ export default function QuestionsGuideClient() {
   }, [view, selectedId, goPrev, goNext]);
 
   const totalInFilter = filteredFlat.length;
+  const fromPath = useMemo(
+    () => getSafeFromPath(searchParams.get("from")),
+    [searchParams],
+  );
+
+  const goBackToOrigin = useCallback(() => {
+    if (fromPath) {
+      router.push(fromPath);
+      return;
+    }
+
+    if (window.history.length > 1) {
+      router.back();
+      return;
+    }
+
+    router.push("/");
+  }, [fromPath, router]);
 
   return (
     <main
@@ -169,8 +204,9 @@ export default function QuestionsGuideClient() {
             Jelajahi per pertanyaan—tanpa scroll panjang. Gunakan pencarian atau langkah berikutnya.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 16 }}>
-            <a
-              href="/"
+            <button
+              type="button"
+              onClick={goBackToOrigin}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -180,11 +216,12 @@ export default function QuestionsGuideClient() {
                 color: "#fff",
                 fontWeight: 700,
                 fontSize: 14,
-                textDecoration: "none",
+                border: "none",
+                cursor: "pointer",
               }}
             >
               ← Halaman utama
-            </a>
+            </button>
             <a
               href="/admin"
               style={{

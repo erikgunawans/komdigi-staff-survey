@@ -87,6 +87,20 @@ export default async function AdminPage() {
 
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <a
+              href="/questions?from=%2Fadmin"
+              style={{
+                textDecoration: "none",
+                background: "#ecfeff",
+                color: "#0f766e",
+                border: "1px solid #99f6e4",
+                borderRadius: 16,
+                padding: "14px 18px",
+                fontWeight: 700,
+              }}
+            >
+              Komdigi Staff Survey Guide
+            </a>
+            <a
               href="/api/admin/export"
               style={{
                 textDecoration: "none",
